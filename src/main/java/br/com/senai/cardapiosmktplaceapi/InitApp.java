@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import com.fasterxml.jackson.datatype.hibernate5.jakarta.Hibernate5JakartaModule;
+
 import br.com.senai.cardapiosmktplaceapi.entity.Categoria;
 import br.com.senai.cardapiosmktplaceapi.entity.Endereco;
 import br.com.senai.cardapiosmktplaceapi.entity.Restaurante;
@@ -30,6 +32,11 @@ public class InitApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InitApp.class, args);
+	}
+	
+	@Bean
+	public Hibernate5JakartaModule jsonHibernate5Module() {
+		return new Hibernate5JakartaModule();
 	}
 	
 	@Bean
